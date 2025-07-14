@@ -2,11 +2,11 @@ import ClientCategoryPage from './ClientCategoryPage';
 import { Metadata } from 'next';
 
 type Props = {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const category = params.slug;
+  const { slug: category } = await params;
   
   const categoryTitles: { [key: string]: string } = {
     'apps': 'Apps',

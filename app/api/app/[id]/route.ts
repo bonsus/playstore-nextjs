@@ -3,9 +3,9 @@ import { getAppDetails } from '@/lib/playstore';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const appId = params.id;
+  const { id: appId } = await params;
 
   if (!appId) {
     return NextResponse.json(

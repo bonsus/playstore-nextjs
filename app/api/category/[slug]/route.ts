@@ -3,9 +3,9 @@ import { getAppsByCategory } from '@/lib/playstore';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
-  const category = params.slug;
+  const { slug: category } = await params;
 
   if (!category) {
     return NextResponse.json(

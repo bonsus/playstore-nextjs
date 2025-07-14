@@ -2,11 +2,11 @@ import { Metadata } from 'next';
 import ClientAppDetailPage from './ClientAppDetailPage';
 
 type Props = {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const appId = params.id;
+  const { id: appId } = await params;
   
   try {
     // Fetch app data to get the actual app name
