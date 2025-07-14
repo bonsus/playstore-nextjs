@@ -48,7 +48,6 @@
     "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.3.0",
-    "eslint": "8.49.0",
     "eslint-config-next": "^15.3.5",
     "google-play-scraper": "^10.0.1",
     "input-otp": "^1.2.4",
@@ -70,5 +69,8 @@
     "typescript": "^5.8.3",
     "vaul": "^0.9.9",
     "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1"
   }
 }
