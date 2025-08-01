@@ -19,11 +19,11 @@ export async function GET(
     const categoryMapping: { [key: string]: string } = {
       'apps': 'APPLICATION',
       'games': 'GAME',
-      'music': 'MUSIC_AND_AUDIO',
+      'music': 'MUSIC AND AUDIO',
       'photography': 'PHOTOGRAPHY',
-      'books': 'BOOKS_AND_REFERENCE',
-      'auto': 'AUTO_AND_VEHICLES',
-      'health': 'HEALTH_AND_FITNESS',
+      'books': 'BOOKS AND REFERENCE',
+      'auto': 'AUTO AND VEHICLES',
+      'health': 'HEALTH AND FITNESS',
       'business': 'BUSINESS'
     };
 

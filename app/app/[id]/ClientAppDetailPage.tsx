@@ -23,7 +23,7 @@ export default function ClientAppDetailPage() {
 
   useEffect(() => {
     if (app && app.title) {
-      loadRelatedApps(appId, app.title);
+      loadRelatedApps(appId, app.title, app.genre);
     }
   }, [app, appId]);
 
@@ -45,14 +45,21 @@ export default function ClientAppDetailPage() {
     }
   };
 
-  const loadRelatedApps = async (id: string, appName: string) => {
+  const loadRelatedApps = async (id: string, appName: string, appGenre?: string) => {
     setRelatedLoading(true);
     
     try {
-      const response = await fetch(`/api/app/${id}/related?name=${encodeURIComponent(appName)}`);
+      const params = new URLSearchParams({
+        name: appName,
+        ...(appGenre && { genre: appGenre })
+      });
+      
+      const response = await fetch(`/api/app/${id}/related?${params.toString()}`);
       if (response.ok) {
         const data = await response.json();
         setRelatedApps(data.relatedApps || []);
+        console.log('Related apps loaded:', data.relatedApps?.length || 0, 
+                   `(Source: ${data.source || 'unknown'})`);
       }
     } catch (err) {
       console.error('Related apps error:', err);
