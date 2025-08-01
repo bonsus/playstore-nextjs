@@ -1,8 +1,8 @@
 import CategoryGrid from '@/components/CategoryGrid';
 import AppCard from '@/components/AppCard';
-import { Search, TrendingUp, Star, Clock, Shuffle } from 'lucide-react';
+import { Search, TrendingUp, Star, Clock, Shuffle, Gamepad2, MessageSquare, Music, Camera, Book, Zap } from 'lucide-react';
 import { Metadata } from 'next';
-import { getRecentAppsWithData, getRandomAppsWithData } from '@/lib/database';
+import { getRecentAppsWithData, getRandomAppsWithData, getAppsByCategoryFromSearch } from '@/lib/database';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -20,10 +20,24 @@ export default function Home() {
   // Get recent and random apps (server-side)
   let recentApps = [];
   let randomApps = [];
+  let gamesApps = [];
+  let communicationApps = [];
+  let musicApps = [];
+  let photographyApps = [];
+  let educationApps = [];
+  let productivityApps = [];
   
   try {
     recentApps = getRecentAppsWithData(6);
     randomApps = getRandomAppsWithData(6);
+    
+    // Get apps from different categories
+    gamesApps = getAppsByCategoryFromSearch('games', 6);
+    communicationApps = getAppsByCategoryFromSearch('communication', 6);
+    musicApps = getAppsByCategoryFromSearch('music', 6);
+    photographyApps = getAppsByCategoryFromSearch('photography', 6);
+    educationApps = getAppsByCategoryFromSearch('education', 6);
+    productivityApps = getAppsByCategoryFromSearch('productivity', 6);
   } catch (error) {
     console.error('Error fetching apps for homepage:', error);
   }
@@ -72,6 +86,126 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {randomApps.map((app: any) => (
               <AppCard key={app.appId} app={app} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Games Section */}
+      {gamesApps.length > 0 && (
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center">
+              <Gamepad2 className="w-6 h-6 text-green-600 mr-2" />
+              <h2 className="text-2xl font-bold text-gray-900">Popular Games</h2>
+            </div>
+            <Link href="/category/games" className="text-blue-600 hover:text-blue-700 font-medium">
+              View All →
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {gamesApps.map((app: any) => (
+              <AppCard key={app.appId || app.id} app={app} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Communication Apps Section */}
+      {communicationApps.length > 0 && (
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center">
+              <MessageSquare className="w-6 h-6 text-blue-600 mr-2" />
+              <h2 className="text-2xl font-bold text-gray-900">Communication</h2>
+            </div>
+            <Link href="/category/communication" className="text-blue-600 hover:text-blue-700 font-medium">
+              View All →
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {communicationApps.map((app: any) => (
+              <AppCard key={app.appId || app.id} app={app} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Music & Audio Section */}
+      {musicApps.length > 0 && (
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center">
+              <Music className="w-6 h-6 text-red-600 mr-2" />
+              <h2 className="text-2xl font-bold text-gray-900">Music & Audio</h2>
+            </div>
+            <Link href="/category/music" className="text-blue-600 hover:text-blue-700 font-medium">
+              View All →
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {musicApps.map((app: any) => (
+              <AppCard key={app.appId || app.id} app={app} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Photography Section */}
+      {photographyApps.length > 0 && (
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center">
+              <Camera className="w-6 h-6 text-pink-600 mr-2" />
+              <h2 className="text-2xl font-bold text-gray-900">Photography</h2>
+            </div>
+            <Link href="/category/photography" className="text-blue-600 hover:text-blue-700 font-medium">
+              View All →
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {photographyApps.map((app: any) => (
+              <AppCard key={app.appId || app.id} app={app} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Education Section */}
+      {educationApps.length > 0 && (
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center">
+              <Book className="w-6 h-6 text-indigo-600 mr-2" />
+              <h2 className="text-2xl font-bold text-gray-900">Education</h2>
+            </div>
+            <Link href="/category/education" className="text-blue-600 hover:text-blue-700 font-medium">
+              View All →
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {educationApps.map((app: any) => (
+              <AppCard key={app.appId || app.id} app={app} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Productivity Section */}
+      {productivityApps.length > 0 && (
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center">
+              <Zap className="w-6 h-6 text-yellow-600 mr-2" />
+              <h2 className="text-2xl font-bold text-gray-900">Productivity</h2>
+            </div>
+            <Link href="/category/productivity" className="text-blue-600 hover:text-blue-700 font-medium">
+              View All →
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {productivityApps.map((app: any) => (
+              <AppCard key={app.appId || app.id} app={app} />
             ))}
           </div>
         </div>
