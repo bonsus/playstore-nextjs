@@ -6,12 +6,12 @@ import Link from 'next/link';
 const categories = [
   { name: 'Apps', icon: Smartphone, href: '/category/apps', color: 'bg-blue-500' },
   { name: 'Games', icon: Gamepad2, href: '/category/games', color: 'bg-green-500' },
-  { name: 'Music', icon: Music, href: '/category/music', color: 'bg-purple-500' },
+  { name: 'Music', icon: Music, href: '/category/musics', color: 'bg-purple-500' },
   { name: 'Photography', icon: Camera, href: '/category/photography', color: 'bg-pink-500' },
-  { name: 'Books', icon: Book, href: '/category/books', color: 'bg-yellow-500' },
-  { name: 'Auto', icon: Car, href: '/category/auto', color: 'bg-red-500' },
-  { name: 'Health', icon: Health, href: '/category/health', color: 'bg-emerald-500' },
-  { name: 'Business', icon: Business, href: '/category/business', color: 'bg-gray-500' }
+  { name: 'Books', icon: Book, href: '/apps/books', color: 'bg-yellow-500' },
+  { name: 'Auto', icon: Car, href: '/apps/auto', color: 'bg-red-500' },
+  { name: 'Health', icon: Health, href: '/apps/health', color: 'bg-emerald-500' },
+  { name: 'Business', icon: Business, href: '/apps/business', color: 'bg-gray-500' }
 ];
 
 export default function CategoryGrid() {
