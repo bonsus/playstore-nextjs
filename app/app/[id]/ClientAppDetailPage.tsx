@@ -117,11 +117,11 @@ export default function ClientAppDetailPage() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* App Header */}
       <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 mb-6">
-        <div className="flex items-start space-x-4">
+        <div className="flex flex-col md:flex-row items-start md:space-x-4">
           <img
             src={app.icon || '/api/placeholder/96/96'}
             alt={app.title}
-            className="w-24 h-24 rounded-2xl object-cover shadow-md"
+            className="w-full md:w-24 md:h-24 mb-3 rounded-2xl object-cover shadow-md"
             onError={(e) => {
               e.currentTarget.src = '/api/placeholder/96/96';
             }}
