@@ -27,6 +27,21 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-icon.svg', type: 'image/svg+xml' },
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#2563eb' },
+    ],
+  },
+  manifest: '/site.webmanifest',
   openGraph: {
     type: 'website',
     locale: 'id_ID',
@@ -55,11 +70,14 @@ export const metadata: Metadata = {
   verification: {
     google: siteConfig.googleSearchConsole.verificationCode || undefined,
   },
+  themeColor: '#2563eb',
   other: {
     // Add Google AdSense verification if available
     ...(getAdSenseVerificationMeta() && {
       [getAdSenseVerificationMeta()!.name]: getAdSenseVerificationMeta()!.content,
     }),
+    'msapplication-TileColor': '#2563eb',
+    'msapplication-config': '/browserconfig.xml',
   },
 };
 

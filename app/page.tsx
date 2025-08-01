@@ -5,22 +5,36 @@ import CategoryAppCard from '@/components/CategoryAppCard';
 import { Search, TrendingUp, Star, Clock, Shuffle, Gamepad2, MessageSquare, Music, Camera, Book, Zap, Sprout } from 'lucide-react';
 import { Metadata } from 'next';
 import { getRecentAppsWithData, getRandomAppsWithData } from '@/lib/database';
+import { searchApps } from '@/lib/playstore';
 import Link from 'next/link';
 
-// Function to fetch category apps from API
+// Function to fetch category apps - directly use Play Store during build
 async function fetchCategoryApps(category: string, limit: number = 6) {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
-    const response = await fetch(`${baseUrl}/api/category?category=${category}&limit=${limit}`, {
-      next: { revalidate: 3600 } // Cache for 1 hour
-    });
+    // Map category names to better search terms
+    const categorySearchTerms: { [key: string]: string } = {
+      'games': 'games',
+      'communication': 'chat messenger',
+      'music': 'music audio',
+      'photography': 'photo camera',
+      'education': 'education learning',
+      'productivity': 'productivity tools',
+      'social': 'social media',
+      'entertainment': 'entertainment video',
+      'sports': 'sports fitness',
+      'health': 'health fitness',
+      'news': 'news',
+      'shopping': 'shopping',
+      'travel': 'travel maps',
+      'weather': 'weather',
+      'business': 'business finance'
+    };
+
+    const searchTerm = categorySearchTerms[category.toLowerCase()] || category;
+    const apps = await searchApps(searchTerm, { limit: limit * 2 });
     
-    if (!response.ok) {
-      throw new Error(`Failed to fetch ${category} apps`);
-    }
-    
-    const data = await response.json();
-    return data.apps || [];
+    // Take only the requested limit
+    return apps.slice(0, limit);
   } catch (error) {
     console.error(`Error fetching ${category} apps:`, error);
     return [];

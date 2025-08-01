@@ -1,0 +1,31 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="90" cy="90" r="90" fill="#2563eb"/>
+  
+  <!-- Phone icon representing mobile apps -->
+  <rect x="60" y="30" width="60" height="120" rx="8" fill="white"/>
+  <rect x="66" y="42" width="48" height="84" rx="4" fill="#2563eb"/>
+  
+  <!-- App grid -->
+  <circle cx="78" cy="60" r="4" fill="white"/>
+  <circle cx="90" cy="60" r="4" fill="white"/>
+  <circle cx="102" cy="60" r="4" fill="white"/>
+  
+  <circle cx="78" cy="78" r="4" fill="white"/>
+  <circle cx="90" cy="78" r="4" fill="white"/>
+  <circle cx="102" cy="78" r="4" fill="white"/>
+  
+  <circle cx="78" cy="96" r="4" fill="white"/>
+  <circle cx="90" cy="96" r="4" fill="white"/>
+  <circle cx="102" cy="96" r="4" fill="white"/>
+  
+  <circle cx="78" cy="114" r="4" fill="white"/>
+  <circle cx="90" cy="114" r="4" fill="white"/>
+  <circle cx="102" cy="114" r="4" fill="white"/>
+  
+  <!-- Home button -->
+  <circle cx="90" cy="138" r="6" fill="white"/>
+  
+  <!-- APKmory text -->
+  <text x="90" y="170" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">APKmory</text>
+</svg>
