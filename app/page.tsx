@@ -1,6 +1,9 @@
 import CategoryGrid from '@/components/CategoryGrid';
-import { Search, TrendingUp, Star } from 'lucide-react';
+import AppCard from '@/components/AppCard';
+import { Search, TrendingUp, Star, Clock, Shuffle } from 'lucide-react';
 import { Metadata } from 'next';
+import { getRecentAppsWithData, getRandomAppsWithData } from '@/lib/database';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Apkmory - Discover Amazing Android Apps & Games',
@@ -14,6 +17,17 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  // Get recent and random apps (server-side)
+  let recentApps = [];
+  let randomApps = [];
+  
+  try {
+    recentApps = getRecentAppsWithData(6);
+    randomApps = getRandomAppsWithData(6);
+  } catch (error) {
+    console.error('Error fetching apps for homepage:', error);
+  }
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Hero Section */}
@@ -33,6 +47,36 @@ export default function Home() {
         <CategoryGrid />
       </div>
 
+      {/* Recent Apps */}
+      {recentApps.length > 0 && (
+        <div className="mb-12">
+          <div className="flex items-center mb-6">
+            <Clock className="w-6 h-6 text-blue-600 mr-2" />
+            <h2 className="text-2xl font-bold text-gray-900">Recently Added</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {recentApps.map((app: any) => (
+              <AppCard key={app.appId} app={app} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Random Apps */}
+      {randomApps.length > 0 && (
+        <div className="mb-12">
+          <div className="flex items-center mb-6">
+            <Shuffle className="w-6 h-6 text-purple-600 mr-2" />
+            <h2 className="text-2xl font-bold text-gray-900">Discover Apps</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {randomApps.map((app: any) => (
+              <AppCard key={app.appId} app={app} />
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Features */}
       <div className="grid md:grid-cols-3 gap-8 mb-12">
         <div className="text-center">
@@ -41,7 +85,7 @@ export default function Home() {
           </div>
           <h3 className="text-lg font-semibold text-gray-900 mb-2">Smart Search</h3>
           <p className="text-gray-600">
-            Find exactly what you're looking for with our powerful search engine.
+            Find exactly what you&apos;re looking for with our powerful search engine.
           </p>
         </div>
         
@@ -73,18 +117,18 @@ export default function Home() {
           Start discovering amazing apps and games today!
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
+          <Link
             href="/category/apps"
             className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
           >
             Browse Apps
-          </a>
-          <a
+          </Link>
+          <Link
             href="/category/games"
             className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
           >
             Browse Games
-          </a>
+          </Link>
         </div>
       </div>
     </div>
