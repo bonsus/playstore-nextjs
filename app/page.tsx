@@ -160,7 +160,7 @@ export default async function Home() {
                 <Gamepad2 className="w-6 h-6 text-green-600 mr-2" />
                 <h2 className="text-2xl font-bold text-gray-900">Popular Games</h2>
               </div>
-              <Link href="/category/games" className="text-blue-600 hover:text-blue-700 font-medium">
+              <Link href="/apps/games" className="text-blue-600 hover:text-blue-700 font-medium">
                 View All →
               </Link>
             </div>
@@ -180,7 +180,7 @@ export default async function Home() {
                 <MessageSquare className="w-6 h-6 text-blue-600 mr-2" />
                 <h2 className="text-2xl font-bold text-gray-900">Communication</h2>
               </div>
-              <Link href="/category/communication" className="text-blue-600 hover:text-blue-700 font-medium">
+              <Link href="/apps/communication" className="text-blue-600 hover:text-blue-700 font-medium">
                 View All →
               </Link>
             </div>
@@ -200,7 +200,7 @@ export default async function Home() {
                 <Music className="w-6 h-6 text-red-600 mr-2" />
                 <h2 className="text-2xl font-bold text-gray-900">Music & Audio</h2>
               </div>
-              <Link href="/category/music" className="text-blue-600 hover:text-blue-700 font-medium">
+              <Link href="/apps/music" className="text-blue-600 hover:text-blue-700 font-medium">
                 View All →
               </Link>
             </div>
@@ -220,7 +220,7 @@ export default async function Home() {
                 <Camera className="w-6 h-6 text-pink-600 mr-2" />
                 <h2 className="text-2xl font-bold text-gray-900">Photography</h2>
               </div>
-              <Link href="/category/photography" className="text-blue-600 hover:text-blue-700 font-medium">
+              <Link href="/apps/photography" className="text-blue-600 hover:text-blue-700 font-medium">
                 View All →
               </Link>
             </div>
@@ -240,7 +240,7 @@ export default async function Home() {
                 <Book className="w-6 h-6 text-indigo-600 mr-2" />
                 <h2 className="text-2xl font-bold text-gray-900">Education</h2>
               </div>
-              <Link href="/category/education" className="text-blue-600 hover:text-blue-700 font-medium">
+              <Link href="/apps/education" className="text-blue-600 hover:text-blue-700 font-medium">
                 View All →
               </Link>
             </div>
@@ -260,7 +260,7 @@ export default async function Home() {
                 <Zap className="w-6 h-6 text-yellow-600 mr-2" />
                 <h2 className="text-2xl font-bold text-gray-900">Productivity</h2>
               </div>
-              <Link href="/category/productivity" className="text-blue-600 hover:text-blue-700 font-medium">
+              <Link href="/apps/productivity" className="text-blue-600 hover:text-blue-700 font-medium">
                 View All →
               </Link>
             </div>
@@ -279,7 +279,7 @@ export default async function Home() {
                 <Star className="w-6 h-6 text-purple-600 mr-2" />
                 <h2 className="text-2xl font-bold text-gray-900">Entertainment</h2>
               </div>
-              <Link href="/category/entertainment" className="text-blue-600 hover:text-blue-700 font-medium">
+              <Link href="/apps/entertainment" className="text-blue-600 hover:text-blue-700 font-medium">
                 View All →
               </Link>
             </div>
@@ -298,7 +298,7 @@ export default async function Home() {
                 <Sprout className="w-6 h-6 text-green-600 mr-2" />
                 <h2 className="text-2xl font-bold text-gray-900">Sports</h2>
               </div>
-              <Link href="/category/sports" className="text-blue-600 hover:text-blue-700 font-medium">
+              <Link href="/apps/sports" className="text-blue-600 hover:text-blue-700 font-medium">
                 View All →
               </Link>
             </div>
@@ -317,7 +317,7 @@ export default async function Home() {
                 <Star className="w-6 h-6 text-yellow-600 mr-2" />
                 <h2 className="text-2xl font-bold text-gray-900">Business</h2>
               </div>
-              <Link href="/category/business" className="text-blue-600 hover:text-blue-700 font-medium">
+              <Link href="/apps/business" className="text-blue-600 hover:text-blue-700 font-medium">
                 View All →
               </Link>
             </div>
