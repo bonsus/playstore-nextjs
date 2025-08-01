@@ -1,23 +1,33 @@
-import { Metadata } from 'next';
+'use client';
+
 import Link from 'next/link';
 import { Home, Search, Grid3X3, ArrowLeft, HelpCircle } from 'lucide-react';
-
-export const metadata: Metadata = {
-  title: '404 - Page Not Found | APKmory',
-  description: 'The page you are looking for could not be found. Return to APKmory homepage to discover amazing Android apps and games.',
-  keywords: ['404', 'page not found', 'apkmory', 'android apps'],
-  openGraph: {
-    title: '404 - Page Not Found | APKmory',
-    description: 'The page you are looking for could not be found. Return to APKmory homepage to discover amazing Android apps and games.',
-    type: 'website',
-  },
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
+import { useEffect } from 'react';
 
 export default function NotFound() {
+  // Set page title and meta tags on client side
+  useEffect(() => {
+    document.title = '404 - Page Not Found | APKmory';
+    
+    // Set meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.setAttribute('name', 'description');
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute('content', 'The page you are looking for could not be found. Return to APKmory homepage to discover amazing Android apps and games.');
+    
+    // Set robots meta tag
+    let metaRobots = document.querySelector('meta[name="robots"]');
+    if (!metaRobots) {
+      metaRobots = document.createElement('meta');
+      metaRobots.setAttribute('name', 'robots');
+      document.head.appendChild(metaRobots);
+    }
+    metaRobots.setAttribute('content', 'noindex, nofollow');
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="max-w-lg w-full text-center">
@@ -53,24 +63,7 @@ export default function NotFound() {
             <Home className="w-5 h-5 mr-2" />
             Back to Homepage
           </Link>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Link
-              href="/search"
-              className="inline-flex items-center justify-center px-4 py-3 bg-white border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
-            >
-              <Search className="w-4 h-4 mr-2" />
-              Search Apps
-            </Link>
-
-            <Link
-              href="/category/apps"
-              className="inline-flex items-center justify-center px-4 py-3 bg-white border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
-            >
-              <Grid3X3 className="w-4 h-4 mr-2" />
-              Browse Categories
-            </Link>
-          </div>
+ 
         </div>
 
         {/* Popular Categories */}
@@ -86,31 +79,31 @@ export default function NotFound() {
               🎮 Games
             </Link>
             <Link
-              href="/category/communication"
+              href="/apps/communication"
               className="px-4 py-2 bg-gray-50 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors text-sm font-medium"
             >
               💬 Communication
             </Link>
             <Link
-              href="/category/photography"
+              href="/apps/photography"
               className="px-4 py-2 bg-gray-50 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors text-sm font-medium"
             >
               📸 Photography
             </Link>
             <Link
-              href="/category/music"
+              href="/category/musics"
               className="px-4 py-2 bg-gray-50 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors text-sm font-medium"
             >
               🎵 Music
             </Link>
             <Link
-              href="/category/education"
+              href="/apps/education"
               className="px-4 py-2 bg-gray-50 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors text-sm font-medium"
             >
               📚 Education
             </Link>
             <Link
-              href="/category/productivity"
+              href="/apps/productivity"
               className="px-4 py-2 bg-gray-50 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors text-sm font-medium"
             >
               ⚡ Productivity
