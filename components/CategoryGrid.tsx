@@ -32,7 +32,7 @@ const categories = [
 
 export default function CategoryGrid() {
   return (
-    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-8 gap-4">
+    <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-4">
       {categories.map((category) => (
         <Link key={category.name} href={category.href}>
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow duration-200 cursor-pointer text-center">
