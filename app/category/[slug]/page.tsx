@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const categoryTitle = categoryTitles[category] || category.charAt(0).toUpperCase() + category.slice(1);
   
   return {
-    title: `${categoryTitle} - Best Android ${categoryTitle} | APK Store`,
+    title: `${categoryTitle} - Best Android ${categoryTitle} | Apkmory`,
     description: `Discover the best ${categoryTitle.toLowerCase()} for Android. Browse through top-rated ${categoryTitle.toLowerCase()} from Google Play Store with detailed information and reviews.`,
     keywords: [`android ${category}`, `${category} apps`, `mobile ${category}`, 'apk download', 'play store', 'app store', 'mobile apps'],
     openGraph: {

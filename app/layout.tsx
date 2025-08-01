@@ -8,14 +8,14 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    default: 'APK Store - Discover Amazing Android Apps & Games',
-    template: '%s | APK Store'
+    default: 'Apkmory - Discover Amazing Android Apps & Games',
+    template: '%s | Apkmory'
   },
   description: 'Discover and explore the best Android apps and games from Google Play Store. Get detailed information, reviews, screenshots, and download links for thousands of applications.',
   keywords: ['android apps', 'apk download', 'play store', 'mobile games', 'android games', 'app store', 'mobile apps'],
-  authors: [{ name: 'APK Store Team' }],
-  creator: 'APK Store',
-  publisher: 'APK Store',
+  authors: [{ name: 'Apkmory Team' }],
+  creator: 'Apkmory',
+  publisher: 'Apkmory',
   formatDetection: {
     email: false,
     address: false,
@@ -29,13 +29,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'id_ID',
     url: '/',
-    title: 'APK Store - Discover Amazing Android Apps & Games',
+    title: 'Apkmory - Discover Amazing Android Apps & Games',
     description: 'Discover and explore the best Android apps and games from Google Play Store. Get detailed information, reviews, screenshots, and download links.',
-    siteName: 'APK Store',
+    siteName: 'Apkmory',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'APK Store - Discover Amazing Android Apps & Games',
+    title: 'Apkmory - Discover Amazing Android Apps & Games',
     description: 'Discover and explore the best Android apps and games from Google Play Store.',
     creator: '@apkstore',
   },

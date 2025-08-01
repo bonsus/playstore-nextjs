@@ -3,11 +3,11 @@ import { Search, TrendingUp, Star } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'APK Store - Discover Amazing Android Apps & Games',
+  title: 'Apkmory - Discover Amazing Android Apps & Games',
   description: 'Explore the best Android apps and games from Google Play Store. Find detailed information, ratings, reviews, and download links for thousands of applications.',
   keywords: ['android apps', 'apk download', 'play store', 'mobile games', 'android games', 'app store'],
   openGraph: {
-    title: 'APK Store - Discover Amazing Android Apps & Games',
+    title: 'Apkmory - Discover Amazing Android Apps & Games',
     description: 'Explore the best Android apps and games from Google Play Store. Find detailed information, ratings, reviews, and download links.',
     type: 'website',
   },

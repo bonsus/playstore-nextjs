@@ -4,7 +4,7 @@ import ClientAppsPage from './ClientAppsPage';
 import LoadingSpinner from '@/components/LoadingSpinner';
 
 export const metadata: Metadata = {
-  title: 'All Apps - Browse Android Applications | APK Store',
+  title: 'All Apps - Browse Android Applications | Apkmory',
   description: 'Browse through all available Android applications. Find the latest apps, games, and utilities with detailed information, screenshots, and reviews.',
   keywords: ['all apps', 'android applications', 'browse apps', 'mobile apps', 'app collection'],
   openGraph: {

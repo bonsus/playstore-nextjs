@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       
       if (app && app.title) {
         return {
-          title: `${app.title} - Download & Review`,
+          title: `${app.title} - Download & Review | Apkmory`,
           description: `Download ${app.title} by ${app.developer || 'Unknown Developer'}. ${app.description ? app.description.substring(0, 150) + '...' : `Get detailed information about ${app.title} including screenshots, reviews, and download links.`}`,
           keywords: ['android app', app.title, app.developer, 'app details', 'apk download', 'app info', 'mobile app', app.genre].filter(Boolean),
           openGraph: {
