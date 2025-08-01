@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { siteConfig, getAdSenseVerificationMeta, getGoogleSiteVerificationMeta } from '@/lib/config';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  metadataBase: new URL(siteConfig.url),
   alternates: {
     canonical: '/',
   },
@@ -51,7 +53,13 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'your-google-verification-code',
+    google: siteConfig.googleSearchConsole.verificationCode || undefined,
+  },
+  other: {
+    // Add Google AdSense verification if available
+    ...(getAdSenseVerificationMeta() && {
+      [getAdSenseVerificationMeta()!.name]: getAdSenseVerificationMeta()!.content,
+    }),
   },
 };
 
@@ -62,6 +70,35 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id">
+      <head>
+        {/* Google AdSense Script */}
+        {siteConfig.googleAdsense.clientId && (
+          <Script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${siteConfig.googleAdsense.clientId}`}
+            crossOrigin="anonymous"
+            strategy="afterInteractive"
+          />
+        )}
+        
+        {/* Google Analytics Script */}
+        {siteConfig.googleAnalytics.id && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.googleAnalytics.id}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${siteConfig.googleAnalytics.id}');
+              `}
+            </Script>
+          </>
+        )}
+      </head>
       <body className={inter.className}>
         <div className="min-h-screen bg-gray-50">
           <Navbar />
