@@ -2,14 +2,17 @@
 
 import { useParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { Star, Download, Calendar, ExternalLink, User, Shield } from 'lucide-react';
+import { Star, Download, Calendar, ExternalLink, User, Shield, Grid3X3 } from 'lucide-react';
 import LoadingSpinner from '@/components/LoadingSpinner';
+import AppCard from '@/components/AppCard';
 
 export default function ClientAppDetailPage() {
   const params = useParams();
   const appId = params.id as string;
   const [app, setApp] = useState<any>(null);
+  const [relatedApps, setRelatedApps] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [relatedLoading, setRelatedLoading] = useState(false);
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -17,6 +20,12 @@ export default function ClientAppDetailPage() {
       loadAppDetails(appId);
     }
   }, [appId]);
+
+  useEffect(() => {
+    if (app && app.title) {
+      loadRelatedApps(appId, app.title);
+    }
+  }, [app, appId]);
 
   const loadAppDetails = async (id: string) => {
     setLoading(true);
@@ -33,6 +42,22 @@ export default function ClientAppDetailPage() {
       console.error('App details error:', err);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const loadRelatedApps = async (id: string, appName: string) => {
+    setRelatedLoading(true);
+    
+    try {
+      const response = await fetch(`/api/app/${id}/related?name=${encodeURIComponent(appName)}`);
+      if (response.ok) {
+        const data = await response.json();
+        setRelatedApps(data.relatedApps || []);
+      }
+    } catch (err) {
+      console.error('Related apps error:', err);
+    } finally {
+      setRelatedLoading(false);
     }
   };
 
@@ -208,7 +233,7 @@ export default function ClientAppDetailPage() {
       )}
 
       {/* Description */}
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 mb-6">
         <h2 className="text-xl font-semibold text-gray-900 mb-4">Description</h2>
         <div className="prose prose-gray max-w-none">
           <p className="text-gray-700 leading-relaxed whitespace-pre-wrap">
@@ -216,6 +241,28 @@ export default function ClientAppDetailPage() {
           </p>
         </div>
       </div>
+
+      {/* Related Apps */}
+      {relatedApps.length > 0 && (
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+          <div className="flex items-center mb-6">
+            <Grid3X3 className="w-6 h-6 text-blue-600 mr-2" />
+            <h2 className="text-xl font-semibold text-gray-900">Related Apps</h2>
+          </div>
+          
+          {relatedLoading ? (
+            <div className="flex justify-center py-8">
+              <LoadingSpinner />
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {relatedApps.map((relatedApp) => (
+                <AppCard key={relatedApp.appId} app={relatedApp} />
+              ))}
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
