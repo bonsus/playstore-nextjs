@@ -1,5 +1,6 @@
 import CategoryGrid from '@/components/CategoryGrid';
 import AppCard from '@/components/AppCard';
+import HomeAppCard from '@/components/HomeAppCard';
 import { Search, TrendingUp, Star, Clock, Shuffle, Gamepad2, MessageSquare, Music, Camera, Book, Zap } from 'lucide-react';
 import { Metadata } from 'next';
 import { getRecentAppsWithData, getRandomAppsWithData, getAppsByCategoryFromSearch } from '@/lib/database';
@@ -70,7 +71,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {recentApps.map((app: any) => (
-              <AppCard key={app.appId} app={app} />
+              <HomeAppCard key={app.appId} app={app} />
             ))}
           </div>
         </div>
@@ -85,7 +86,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {randomApps.map((app: any) => (
-              <AppCard key={app.appId} app={app} />
+              <HomeAppCard key={app.appId} app={app} />
             ))}
           </div>
         </div>
@@ -105,7 +106,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {gamesApps.map((app: any) => (
-              <AppCard key={app.appId || app.id} app={app} />
+              <HomeAppCard key={app.appId || app.id} app={app} />
             ))}
           </div>
         </div>
@@ -125,7 +126,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {communicationApps.map((app: any) => (
-              <AppCard key={app.appId || app.id} app={app} />
+              <HomeAppCard key={app.appId || app.id} app={app} />
             ))}
           </div>
         </div>
@@ -145,7 +146,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {musicApps.map((app: any) => (
-              <AppCard key={app.appId || app.id} app={app} />
+              <HomeAppCard key={app.appId || app.id} app={app} />
             ))}
           </div>
         </div>
@@ -165,7 +166,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {photographyApps.map((app: any) => (
-              <AppCard key={app.appId || app.id} app={app} />
+              <HomeAppCard key={app.appId || app.id} app={app} />
             ))}
           </div>
         </div>
@@ -185,7 +186,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {educationApps.map((app: any) => (
-              <AppCard key={app.appId || app.id} app={app} />
+              <HomeAppCard key={app.appId || app.id} app={app} />
             ))}
           </div>
         </div>
@@ -205,7 +206,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {productivityApps.map((app: any) => (
-              <AppCard key={app.appId || app.id} app={app} />
+              <HomeAppCard key={app.appId || app.id} app={app} />
             ))}
           </div>
         </div>
