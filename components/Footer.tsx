@@ -1,3 +1,5 @@
+import { Link } from "lucide-react";
+
 export default function Footer() {
   return (
     <footer className="bg-gray-50 border-t border-gray-200 mt-16">
@@ -17,34 +19,34 @@ export default function Footer() {
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Categories</h3>
             <ul className="space-y-2">
               <li>
-                <a href="/category/apps" className="text-gray-600 hover:text-blue-600 text-sm">
+                <Link href="/category/apps" className="text-gray-600 hover:text-blue-600 text-sm">
                   Apps
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/category/games" className="text-gray-600 hover:text-blue-600 text-sm">
+                <Link href="/category/games" className="text-gray-600 hover:text-blue-600 text-sm">
                   Games
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/category/music" className="text-gray-600 hover:text-blue-600 text-sm">
+                <Link href="/category/musics" className="text-gray-600 hover:text-blue-600 text-sm">
                   Music
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/category/photography" className="text-gray-600 hover:text-blue-600 text-sm">
+                <Link href="/category/photography" className="text-gray-600 hover:text-blue-600 text-sm">
                   Photography
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/category/books" className="text-gray-600 hover:text-blue-600 text-sm">
+                <Link href="/apps/books" className="text-gray-600 hover:text-blue-600 text-sm">
                   Books
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/category/auto" className="text-gray-600 hover:text-blue-600 text-sm">
+                <Link href="/apps/auto" className="text-gray-600 hover:text-blue-600 text-sm">
                   Auto & Vehicles
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -89,7 +91,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-8 border-t border-gray-200">
           <p className="text-center text-gray-500 text-sm">
-            © 2024-2025 Apkmory.com. All rights reserved. This is not affiliated with Google Play Store.
+            © 2025 Apkmory.com. All rights reserved. This is not affiliated with Google Play Store.
           </p>
         </div>
       </div>
