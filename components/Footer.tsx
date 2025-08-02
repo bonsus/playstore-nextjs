@@ -19,34 +19,34 @@ export default function Footer() {
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Categories</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/category/apps" className="text-gray-600 hover:text-blue-600 text-sm">
+                <a href="/category/apps" className="text-gray-600 hover:text-blue-600 text-sm">
                   Apps
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/category/games" className="text-gray-600 hover:text-blue-600 text-sm">
+                <a href="/category/games" className="text-gray-600 hover:text-blue-600 text-sm">
                   Games
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/category/musics" className="text-gray-600 hover:text-blue-600 text-sm">
+                <a href="/category/musics" className="text-gray-600 hover:text-blue-600 text-sm">
                   Music
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/category/photography" className="text-gray-600 hover:text-blue-600 text-sm">
+                <a href="/category/photography" className="text-gray-600 hover:text-blue-600 text-sm">
                   Photography
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/apps/books" className="text-gray-600 hover:text-blue-600 text-sm">
+                <a href="/apps/books" className="text-gray-600 hover:text-blue-600 text-sm">
                   Books
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/apps/auto" className="text-gray-600 hover:text-blue-600 text-sm">
+                <a href="/apps/autos" className="text-gray-600 hover:text-blue-600 text-sm">
                   Auto & Vehicles
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
