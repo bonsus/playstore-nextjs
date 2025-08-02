@@ -2,11 +2,13 @@ import CategoryGrid from '@/components/CategoryGrid';
 import AppCard from '@/components/AppCard';
 import HomeAppCard from '@/components/HomeAppCard';
 import CategoryAppCard from '@/components/CategoryAppCard';
-import { Search, TrendingUp, Star, Clock, Shuffle, Gamepad2, MessageSquare, Music, Camera, Book, Zap, Sprout } from 'lucide-react';
+import { Search, TrendingUp, Star, Clock, Shuffle, Gamepad2, MessageSquare, Music, Camera, Book, Zap, Sprout, BookOpen } from 'lucide-react';
 import { Metadata } from 'next';
 import { getRecentAppsWithData, getRandomAppsWithData } from '@/lib/database';
 import { searchApps } from '@/lib/playstore';
+import { getRecentArticles } from '@/lib/articles';
 import Link from 'next/link';
+import Image from 'next/image';
 
 // Function to fetch category apps - directly use Play Store during build
 async function fetchCategoryApps(category: string, limit: number = 6) {
@@ -63,6 +65,9 @@ export default async function Home() {
   } catch (error) {
     console.error('Error fetching apps from database:', error);
   }
+
+  // Get recent articles
+  const recentArticles = getRecentArticles(3);
 
   // Get apps from different categories via API (fresh from Play Store)
   const [
@@ -329,6 +334,64 @@ export default async function Home() {
           </div>
         )}
       </div>
+
+        {/* Latest Articles Section */}
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center">
+              <BookOpen className="w-6 h-6 text-indigo-600 mr-2" />
+              <h2 className="text-2xl font-bold text-gray-900">Latest Articles</h2>
+            </div>
+            <Link href="/articles" className="text-blue-600 hover:text-blue-700 font-medium">
+              View All →
+            </Link>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {recentArticles.map((article) => (
+              <Link
+                key={article.id}
+                href={`/article/${article.slug}`}
+                className="group bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow"
+              >
+                <div className="relative w-full h-48">
+                  <Image
+                    src={article.featuredImage}
+                    alt={article.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                
+                <div className="p-6">
+                  <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
+                    <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
+                      {article.category}
+                    </span>
+                    <span>{article.readTime}</span>
+                  </div>
+                  
+                  <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+                    {article.title}
+                  </h3>
+                  
+                  <p className="text-sm text-gray-600 line-clamp-2 mb-3">
+                    {article.excerpt}
+                  </p>
+                  
+                  <div className="flex items-center text-xs text-gray-500">
+                    <Clock className="h-3 w-3 mr-1" />
+                    {new Date(article.publishedAt).toLocaleDateString('en-US', {
+                      month: 'short',
+                      day: 'numeric',
+                      year: 'numeric'
+                    })}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
 
         {/* Features */}
         <div className="grid md:grid-cols-3 gap-8 mb-12">
