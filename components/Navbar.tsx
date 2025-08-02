@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Search, Menu, X, Smartphone, Gamepad2 } from 'lucide-react';
+import { Search, Menu, X, Smartphone, Gamepad2, Newspaper } from 'lucide-react';
 
 // Simple slugify function
 function slugify(text: string): string {
@@ -32,7 +32,8 @@ export default function Navbar() {
 
   const categories = [
     { name: 'Apps', icon: Smartphone, href: '/category/apps' },
-    { name: 'Games', icon: Gamepad2, href: '/category/games' }
+    { name: 'Games', icon: Gamepad2, href: '/category/games' },
+    { name: 'Articles', icon: Newspaper, href: '/articles' },
   ];
 
   return (
