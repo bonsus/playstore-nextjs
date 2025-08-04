@@ -323,8 +323,7 @@ export default function TermsOfUsePage() {
             If you have any questions about these Terms of Use, please contact us:
           </p>
           <div className="space-y-2">
-            <p>Email: legal@apkmory.com</p>
-            <p>General Support: support@apkmory.com</p>
+            <p>Email: apkmorys@gmail.com</p> 
             <p>Website: apkmory.com</p>
           </div>
           <p className="text-sm opacity-75 mt-6">

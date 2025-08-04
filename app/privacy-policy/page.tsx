@@ -164,7 +164,7 @@ export default function PrivacyPolicyPage() {
               <li><strong>Restriction:</strong> Request restriction of processing in certain circumstances</li>
             </ul>
             <p className="text-gray-700 mt-4">
-              To exercise these rights, please contact us at privacy@apkmory.com. We will respond to your request within a reasonable timeframe.
+              To exercise these rights, please contact us at apkmorys@gmail.com. We will respond to your request within a reasonable timeframe.
             </p>
           </div>
         </section>
@@ -214,7 +214,7 @@ export default function PrivacyPolicyPage() {
             If you have any questions about this Privacy Policy or our data practices, please contact us:
           </p>
           <div className="space-y-2">
-            <p>Email: privacy@apkmory.com</p>
+            <p>Email: apkmorys@gmail.com</p>
             <p>Website: apkmory.com</p>
           </div>
         </div>

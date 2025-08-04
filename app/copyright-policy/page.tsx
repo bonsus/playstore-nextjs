@@ -149,7 +149,7 @@ export default function CopyrightPolicyPage() {
             <div className="bg-gray-50 rounded-lg p-4 mb-4">
               <h4 className="font-semibold text-gray-900 mb-2">Copyright Agent:</h4>
               <div className="space-y-1 text-gray-700">
-                <p>Email: copyright@apkmory.com</p>
+                <p>Email: apkmorys@gmail.com</p>
                 <p>Subject: DMCA Takedown Notice</p>
                 <p>Website: apkmory.com</p>
               </div>
@@ -177,7 +177,7 @@ export default function CopyrightPolicyPage() {
               <li>Your physical or electronic signature</li>
             </ul>
             <p className="text-gray-700 mt-4">
-              Send counter-notifications to: copyright@apkmory.com with subject &quot;DMCA Counter-Notice&quot;
+              Send counter-notifications to: apkmorys@gmail.com with subject &quot;DMCA Counter-Notice&quot;
             </p>
           </div>
         </section>
@@ -203,7 +203,7 @@ export default function CopyrightPolicyPage() {
               APKmory also respects trademark rights. If you believe your trademark is being used inappropriately on our platform:
             </p>
             <ul className="list-disc list-inside text-gray-700 space-y-2">
-              <li>Contact us at trademark@apkmory.com</li>
+              <li>Contact us at apkmorys@gmail.com</li>
               <li>Provide proof of trademark ownership</li>
               <li>Specify the allegedly infringing use</li>
               <li>Include your contact information</li>
@@ -230,8 +230,7 @@ export default function CopyrightPolicyPage() {
             For all copyright-related inquiries, please contact our copyright team:
           </p>
           <div className="space-y-2">
-            <p>Email: copyright@apkmory.com</p>
-            <p>General Contact: support@apkmory.com</p>
+            <p>Email: apkmorys@gmail.com</p> 
             <p>Website: apkmory.com</p>
           </div>
         </div>

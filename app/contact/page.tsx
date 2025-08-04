@@ -33,7 +33,7 @@ export default function ContactPage() {
               <Mail className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
               <div>
                 <h3 className="text-lg font-semibold text-gray-900">Email</h3>
-                <p className="text-gray-600">support@apkmory.com</p>
+                <p className="text-gray-600">apkmorys@gmail.com</p>
                 <p className="text-sm text-gray-500">For general inquiries and support</p>
               </div>
             </div>
@@ -42,7 +42,7 @@ export default function ContactPage() {
               <MessageCircle className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
               <div>
                 <h3 className="text-lg font-semibold text-gray-900">Feedback</h3>
-                <p className="text-gray-600">feedback@apkmory.com</p>
+                <p className="text-gray-600">apkmorys@gmail.com</p>
                 <p className="text-sm text-gray-500">Share your suggestions and ideas</p>
               </div>
             </div>
@@ -51,7 +51,7 @@ export default function ContactPage() {
               <Phone className="w-6 h-6 text-purple-600 mt-1 flex-shrink-0" />
               <div>
                 <h3 className="text-lg font-semibold text-gray-900">Business</h3>
-                <p className="text-gray-600">business@apkmory.com</p>
+                <p className="text-gray-600">apkmorys@gmail.com</p>
                 <p className="text-sm text-gray-500">For partnerships and business inquiries</p>
               </div>
             </div>
@@ -73,13 +73,13 @@ export default function ContactPage() {
               <div>
                 <h4 className="font-semibold text-gray-900">How do I request a new app to be added?</h4>
                 <p className="text-sm text-gray-600 mt-1">
-                  Simply email us the app name and Play Store link at support@apkmory.com
+                  Simply email us the app name and Play Store link at apkmorys@gmail.com
                 </p>
               </div>
               <div>
                 <h4 className="font-semibold text-gray-900">Can I suggest new features?</h4>
                 <p className="text-sm text-gray-600 mt-1">
-                  Absolutely! Send your feature requests to feedback@apkmory.com
+                  Absolutely! Send your feature requests to apkmorys@gmail.com
                 </p>
               </div>
               <div>
