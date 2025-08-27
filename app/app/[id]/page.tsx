@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import ClientAppDetailPage from './ClientAppDetailPage';
+import { getAdSenseAccountMeta } from '@/lib/config';
 
 type Props = {
   params: Promise<{ id: string }>
@@ -27,6 +28,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             type: 'website',
             images: app.icon ? [{ url: app.icon, alt: `${app.title} icon` }] : undefined,
           },
+          other: {
+            // Add Google AdSense account meta tag
+            ...(getAdSenseAccountMeta() && {
+              [getAdSenseAccountMeta()!.name]: getAdSenseAccountMeta()!.content,
+            }),
+          },
         };
       }
     }
@@ -41,12 +48,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: `Get detailed information about ${appId} including screenshots, reviews, and download links.`,
         type: 'website',
       },
+      other: {
+        // Add Google AdSense account meta tag
+        ...(getAdSenseAccountMeta() && {
+          [getAdSenseAccountMeta()!.name]: getAdSenseAccountMeta()!.content,
+        }),
+      },
     };
   } catch (error) {
     console.error('Error generating metadata:', error);
     return {
       title: 'App Details | APK Store',
       description: 'Get detailed information about Android apps including screenshots, reviews, and download links.',
+      other: {
+        // Add Google AdSense account meta tag
+        ...(getAdSenseAccountMeta() && {
+          [getAdSenseAccountMeta()!.name]: getAdSenseAccountMeta()!.content,
+        }),
+      },
     };
   }
 }

@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import { Metadata } from 'next';
 import ClientAppsPage from './ClientAppsPage';
 import LoadingSpinner from '@/components/LoadingSpinner';
+import { getAdSenseAccountMeta } from '@/lib/config';
 
 export const metadata: Metadata = {
   title: 'All Apps - Browse Android Applications | Apkmory',
@@ -11,6 +12,12 @@ export const metadata: Metadata = {
     title: 'All Apps - Browse Android Applications',
     description: 'Browse through all available Android applications. Find the latest apps, games, and utilities.',
     type: 'website',
+  },
+  other: {
+    // Add Google AdSense account meta tag
+    ...(getAdSenseAccountMeta() && {
+      [getAdSenseAccountMeta()!.name]: getAdSenseAccountMeta()!.content,
+    }),
   },
 };
 

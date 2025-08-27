@@ -7,6 +7,7 @@ import { Metadata } from 'next';
 import { getRecentAppsWithData, getRandomAppsWithData } from '@/lib/database';
 import { searchApps } from '@/lib/playstore';
 import { getRecentArticles } from '@/lib/articles';
+import { getAdSenseAccountMeta } from '@/lib/config';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -51,6 +52,12 @@ export const metadata: Metadata = {
     title: 'Apkmory - Discover Amazing Android Apps & Games',
     description: 'Explore the best Android apps and games from Google Play Store. Find detailed information, ratings, reviews, and download links.',
     type: 'website',
+  },
+  other: {
+    // Add Google AdSense account meta tag
+    ...(getAdSenseAccountMeta() && {
+      [getAdSenseAccountMeta()!.name]: getAdSenseAccountMeta()!.content,
+    }),
   },
 };
 

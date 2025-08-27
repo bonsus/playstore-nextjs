@@ -4,6 +4,7 @@ import { Clock, Calendar, User, Tag, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getArticleBySlug, getRelatedArticles } from '@/lib/articles';
+import { getAdSenseAccountMeta } from '@/lib/config';
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;
@@ -43,6 +44,12 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
       title: article.title,
       description: article.excerpt,
       images: [article.featuredImage],
+    },
+    other: {
+      // Add Google AdSense account meta tag
+      ...(getAdSenseAccountMeta() && {
+        [getAdSenseAccountMeta()!.name]: getAdSenseAccountMeta()!.content,
+      }),
     },
   };
 }

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { Shield, Users, Search, Download, Star, Globe } from 'lucide-react';
+import { getAdSenseAccountMeta } from '@/lib/config';
 
 export const metadata: Metadata = {
   title: 'About Us - APKmory | Discover Amazing Android Apps',
@@ -9,6 +10,12 @@ export const metadata: Metadata = {
     title: 'About APKmory - Your Android App Discovery Platform',
     description: 'Learn about APKmory, your trusted source for Android app discovery.',
     type: 'website',
+  },
+  other: {
+    // Add Google AdSense account meta tag
+    ...(getAdSenseAccountMeta() && {
+      [getAdSenseAccountMeta()!.name]: getAdSenseAccountMeta()!.content,
+    }),
   },
 };
 

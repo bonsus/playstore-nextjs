@@ -8,6 +8,7 @@ export const siteConfig = {
   googleAdsense: {
     clientId: process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT_ID || '',
     verificationCode: process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_VERIFICATION_CODE || '',
+    accountId: process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ACCOUNT_ID || 'ca-pub-6465174352180458',
   },
   
   googleAnalytics: {
@@ -46,6 +47,15 @@ export const getAdSenseVerificationMeta = () => {
   return {
     name: 'google-adsense-account',
     content: siteConfig.googleAdsense.verificationCode,
+  };
+};
+
+// Helper function to get AdSense account meta tag
+export const getAdSenseAccountMeta = () => {
+  if (!siteConfig.googleAdsense.accountId) return null;
+  return {
+    name: 'google-adsense-account',
+    content: siteConfig.googleAdsense.accountId,
   };
 };
 

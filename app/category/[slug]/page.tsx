@@ -1,5 +1,6 @@
 import ClientCategoryPage from './ClientCategoryPage';
 import { Metadata } from 'next';
+import { getAdSenseAccountMeta } from '@/lib/config';
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -29,6 +30,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${categoryTitle} - Best Android ${categoryTitle}`,
       description: `Discover the best ${categoryTitle.toLowerCase()} for Android. Browse through top-rated ${categoryTitle.toLowerCase()} from Google Play Store.`,
       type: 'website',
+    },
+    other: {
+      // Add Google AdSense account meta tag
+      ...(getAdSenseAccountMeta() && {
+        [getAdSenseAccountMeta()!.name]: getAdSenseAccountMeta()!.content,
+      }),
     },
   };
 }

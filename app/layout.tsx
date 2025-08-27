@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { siteConfig, getAdSenseVerificationMeta, getGoogleSiteVerificationMeta } from '@/lib/config';
+import { siteConfig, getAdSenseVerificationMeta, getGoogleSiteVerificationMeta, getAdSenseAccountMeta } from '@/lib/config';
 import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -72,6 +72,10 @@ export const metadata: Metadata = {
   },
   themeColor: '#2563eb',
   other: {
+    // Add Google AdSense account meta tag
+    ...(getAdSenseAccountMeta() && {
+      [getAdSenseAccountMeta()!.name]: getAdSenseAccountMeta()!.content,
+    }),
     // Add Google AdSense verification if available
     ...(getAdSenseVerificationMeta() && {
       [getAdSenseVerificationMeta()!.name]: getAdSenseVerificationMeta()!.content,

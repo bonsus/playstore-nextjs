@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { allArticles, getAllCategories } from '@/lib/articles';
 import { Clock, User, Tag, Calendar } from 'lucide-react';
+import { getAdSenseAccountMeta } from '@/lib/config';
 
 export const metadata: Metadata = {
   title: 'Android Articles & Guides | APKmory Blog',
@@ -12,6 +13,12 @@ export const metadata: Metadata = {
     title: 'Android Articles & Guides | APKmory Blog',
     description: 'Discover comprehensive Android guides, tutorials, and tips. Stay updated with the latest Android news, app reviews, and expert advice.',
     type: 'website',
+  },
+  other: {
+    // Add Google AdSense account meta tag
+    ...(getAdSenseAccountMeta() && {
+      [getAdSenseAccountMeta()!.name]: getAdSenseAccountMeta()!.content,
+    }),
   },
 };
 
